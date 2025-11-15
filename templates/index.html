@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Navbar -->
+<header class="navbar">
+    <!-- Left-aligned links -->
+    <nav class="navbar-menu" id="navbarMenu">
+        <a href="/">Home</a>
+        <a href="/competitor-analysis">Competitor Analysis</a>
+        <!-- Add more links if needed -->
+    </nav>
+
+    <!-- Search Bar on the right -->
+    <form method="POST" class="search-form navbar-search">
+        <input type="text" name="search_query" placeholder="Search reviews (e.g., 'food', 'staff')" value="{{ request.form.get('search_query', '') }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Mobile toggle button -->
+    <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+</header>
+
+<!-- Enhanced Dashboard Header -->
+<section class="dashboard-header">
+    <h1>Welcome to the Restaurant Reviews Dashboard</h1>
+    <p>Analyze customer feedback categorized by food and service with ease.</p>
+</section>
+
+<!-- Reviews Section -->
+<section class="reviews-container">
+    {% if reviews %}
+        {% for review in reviews %}
+        <div class="review-card">
+            <h2>{{ review['Reviewer Name'] }}</h2>
+            <p><strong>Rating:</strong> {{ review['Rating'] }}</p>
+            <p><strong>Date of visit:</strong> {{ review['Date'] }}</p>
+            <p class="review-text">{{ review['Original Review']|safe }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">No reviews found. Try a different search query.</p>
+    {% endif %}
+</section>
+
+<!-- Pagination Section -->
+<section class="pagination">
+    {% if pagination %}
+        <!-- Previous button -->
+        {% if pagination.prev_page %}
+            <a href="{{ url_for('index', page=pagination.prev_page) }}" class="page-link">Previous</a>
+        {% endif %}
+
+        <!-- Display the current page and adjacent pages -->
+        {% for page in pagination.pages %}
+            {% if page >= pagination.current_page - 1 and page <= pagination.current_page + 1 %}
+                <a href="{{ url_for('index', page=page) }}" class="page-link {% if pagination.current_page == page %}active{% endif %}">
+                    {{ page }}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Last page button -->
+        {% if pagination.current_page < pagination.total_pages - 1 %}
+            <a href="{{ url_for('index', page=pagination.total_pages) }}" class="page-link">Last</a>
+        {% endif %}
+
+        <!-- Next button -->
+        {% if pagination.next_page %}
+            <a href="{{ url_for('index', page=pagination.next_page) }}" class="page-link">Next</a>
+        {% endif %}
+    {% endif %}
+</section>
+
+
+{% endblock %}

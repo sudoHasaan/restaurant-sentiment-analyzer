@@ -1,0 +1,280 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1f1f1f; /* Dark gray background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e0e0e0; /* Light text */
+    text-decoration: none;
+}
+
+/* Navbar Menu */
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    margin-right: auto; /* Home and Competitor Analysis aligned to the left */
+}
+
+.navbar-menu a {
+    color: #e0e0e0; /* Light text color */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #4db6ac; /* Highlight color */
+}
+
+/* Navbar Search Bar */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto; /* Pushes the search form to the right */
+}
+
+.navbar-search input {
+    width: 250px; /* Slightly larger input field */
+    padding: 0.8rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #1f1f1f;
+    color: #e0e0e0; /* Prevents color from changing to white */
+}
+
+/* Button Styling */
+.navbar-search button {
+    background-color: #4db6ac; /* Highlight color */
+    color: #121212; /* Dark text */
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-search button:hover {
+    background-color: #3c3d37; /* Slightly darker */
+}
+
+/* Navbar Toggle (Mobile) */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #1f1f1f;
+        padding: 1rem;
+        width: 200px;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-search {
+        flex: 1 1 auto;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+
+    .navbar-search input {
+        width: 150px;
+    }
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    text-align: center;
+    padding: 3rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    color: #4db6ac; /* Highlighted teal */
+}
+
+.dashboard-header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #bbbbbb;
+}
+
+/* Competitor Analysis Section */
+.competitor-analysis {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: #e0e0e0;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.competitor-analysis h2 {
+    font-size: 2rem;
+    color: #4db6ac; /* Highlighted teal */
+}
+
+.competitor-analysis form {
+    margin-top: 1rem;
+}
+
+.competitor-analysis input {
+    width: 60%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.competitor-analysis button {
+    background-color: #4db6ac;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.competitor-analysis button:hover {
+    background-color: #3c3d37;
+}
+
+/* Reviews Section */
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.review-card {
+    background: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.review-card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #4db6ac; /* Highlighted teal */
+}
+
+.review-card p strong {
+    color: #ECDFCC; /* Distinct color for headings (Rating, Date) */
+    font-weight: bold;
+}
+
+.review-card p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+.review-card p.review-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #eaeaea; /* Softer white */
+}
+
+/* Highlighted Text Styling */
+.food {
+    background-color: #697565; /* Dark green */
+    color: #eaeaea;
+    font-weight: bold;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+
+.staff {
+    background-color: #9B3922; /* Dark red */
+    color: #eaeaea;
+    font-weight: bold;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 0.5rem;
+}
+
+.page-link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #4db6ac;
+}
+
+.page-link.active {
+    background-color: #4db6ac;
+    color: #121212;
+    font-weight: bold;
+}

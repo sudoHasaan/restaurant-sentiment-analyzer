@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Competitor Analysis Section -->
+<section class="competitor-analysis">
+    <h2>Competitor Analysis</h2>
+    <p>Compare the ratings of your restaurant with a competitor over time.</p>
+    <form method="POST" action="/competitor-analysis">
+        <label for="competitor_url">Enter Competitor Restaurant OpenTable Link:</label>
+        <input type="text" name="competitor_url" id="competitor_url" placeholder="Paste competitor's OpenTable link here" required>
+        <button type="submit">Analyze</button>
+    </form>
+    {% if plot_url %}
+    <h3>Comparison Plot:</h3>
+    <img src="{{ plot_url }}" alt="Competitor Rating Comparison">
+    {% endif %}
+</section>
+
+{% endblock %}
