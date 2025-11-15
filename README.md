@@ -132,6 +132,7 @@ restaurant-sentiment-analysis/
 │
 ├── restaurant_reviews_content.csv  # Scraped reviews (not in repo)
 └── categorized_reviews.json        # AI-categorized reviews (not in repo)
+```
 
 ## ⚠️ Important Notes
 
