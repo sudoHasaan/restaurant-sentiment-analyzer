@@ -132,13 +132,6 @@ restaurant-sentiment-analysis/
 │
 ├── restaurant_reviews_content.csv  # Scraped reviews (not in repo)
 └── categorized_reviews.json        # AI-categorized reviews (not in repo)
-```
-
-## 🔒 Security Notes
-
-- **Never commit your API key** to the repository
-- The `.gitignore` file excludes sensitive files
-- Use environment variables for configuration
 
 ## ⚠️ Important Notes
 
